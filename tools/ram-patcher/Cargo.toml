@@ -1,0 +1,18 @@
+[package]
+name = "ram-patcher"
+version = "1.1.0"
+edition = "2021"
+description = "Toggles the /LARGEADDRESSAWARE flag on GTA III/VC/SA executables (Linux CLI port of SilentPatch's tool)"
+license = "MIT"
+
+[[bin]]
+name = "ram-patcher"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
