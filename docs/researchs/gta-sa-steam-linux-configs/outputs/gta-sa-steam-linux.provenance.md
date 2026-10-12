@@ -1,0 +1,35 @@
+# Provenance: configurar GTA San Andreas na Steam (Linux) via arquivos/CLI
+
+- **Date:** 2026-10-12
+- **Rounds:** 5 — (1) 3 researchers paralelos (steam/game/tools); (2) verifier (citação + verificação de URLs); (3) reviewer (auditoria de evidência); (4) reviewer (segunda passada de verificação); (5) reparos finais pelo lead.
+- **Sources consulted:** ~70 URLs distintas, incluindo:
+  - Primárias/código: README e script do `ValveSoftware/Proton` (branches 5.0/6.3/7.0/8.0/9.0/10.0/11.0), Proton FAQ, `protontricks` (README + `steam.py`), `winetricks` (man + verbs), man pages do Wine (`wine`, `regedit`, `wineboot`, `wineserver`, `winecfg`), DXVK (wiki + repos), `gamescope`, MangoHud, vkBasalt, Bottles docs, SteamTinkerLaunch wiki, SteamCMD/Command-line options (Valve Dev Wiki), `environment.d(5)`, `xvfb-run(1)`.
+  - Jogo/mods: GTAMods Wiki (`gta_sa.set`, User files), Steam Community (app 12120), GitHub de Ultimate ASI Loader, SilentPatch, ModLoader, CLEO5, WidescreenFixesPack, dgVoodoo2, ReShade.
+  - Metadados: Steam Store API (`appdetails?appids=12120`), SteamDB (403).
+- **Sources accepted:** 70 fontes numeradas na seção **Sources** do relatório final.
+- **Sources rejected / withdrawn:**
+  - `pcgamingwiki.com/wiki/Grand_Theft_Auto:_San_Andreas` — HTTP 403, não fetchável (era fonte do caminho `Documents`, do termo "encrypted" e do default 800×600).
+  - Alegação "`PROTON_ENABLE_NVAPI` é no-op / não existe" — **falsa**: existe em Proton 6.3–8.0. Corrigida (W1).
+  - Alegação "apagar `gta_sa.set` reseta para 800×600" — sem fonte fetchável. Removida (W3).
+  - Alegação "mapa de ações do teclado incompleto" — fonte única 403; contradita pelo GTAMods. Reescrita (W4).
+  - Atribuição das flags `-width`/`-height` ao GTA IV — não confirmada. Marcada não verificada (N3).
+  - URL `dege.freeweb.hu/dgVoodoo2/dgVoodoo2` — HTTP 404. Substituída por `/dgVoodoo2/` (N1).
+  - `dinput8=n,b` atribuído a "outros títulos GTA" — na fonte é Monster Hunter Rise. Corrigido (N4).
+  - Restos: placeholder `[26/23]` removido (N6); afirmações do SteamDB (403) marcadas não verificadas (N7).
+- **Verification:** PASS WITH NOTES
+  - Passe 1 (reviewer): 1 FATAL (NVAPI) + 1 FATAL sistêmico (integridade de citações) + MAJORs.
+  - Passe 2 (reviewer): **nenhum FATAL**; W1/W3/W4/W5/W6/W7 resolvidos; W2 parcialmente resolvido (N1–N4).
+  - Reparos finais aplicados pelo lead (N1–N7), verificados com `grep` no disco.
+  - Nota: **nada foi executado em máquina real** — relatório é documental. 9 fontes são não fetcháveis (403/anti-bot) e estão listadas no relatório.
+- **Plan:** outputs/.plans/gta-sa-steam-linux.md
+- **Research files:**
+  - outputs/.drafts/gta-sa-steam-linux-research-lead.md
+  - outputs/.drafts/gta-sa-steam-linux-research-steam.md
+  - outputs/.drafts/gta-sa-steam-linux-research-game.md
+  - outputs/.drafts/gta-sa-steam-linux-research-tools.md
+  - outputs/.drafts/gta-sa-steam-linux-draft.md
+  - outputs/.drafts/gta-sa-steam-linux-cited.md
+  - outputs/.drafts/gta-sa-steam-linux-verification.md
+  - outputs/.drafts/gta-sa-steam-linux-verification-2.md
+  - outputs/.drafts/gta-sa-steam-linux-revised.md (candidato final)
+- **Final artifact:** outputs/gta-sa-steam-linux.md
